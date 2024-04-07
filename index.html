@@ -19,88 +19,76 @@
   <section>
     <div class="img-container">
       <div class="front-img-container">
-        <div class="circle">
-          <div class="circle-1"></div>
-          <div class="circle-2"></div>
-        </div>
-        <div class="para">
-          <p class="para-1">0000 0000 0000 0000</p>
-          <div class="cvc-u">
-            <p class="">Jane Appleseed</p>         
-            <p class="">00/00</p>
+        <div class="front-container">
+          <div class="circle">
+            <img src="images/card-logo.svg" alt="">
           </div>
-          
+          <div class="para">
+            <p class="para-1">1234 5678 9123 0000</p>
+            <div class="cvc-u">
+              <p class="card-name">Jane Appleseed</p>         
+              <p class="card-date">00/00</p>
+            </div> 
+          </div>
         </div>
-
       </div>
-
       <div class="back-img-container">
         <div class="back-para">
-          <p class="">000</p>
+          <p class="card-cvc">000</p>
         </div>
       </div>
     </div>
-    <div class="empty-container">
-
-    </div>
-    <form action="" id="form">
-      <div class="form-container">
-        <div class="input-contaier">
-          <label for="" id="name">Cardholder Name </label>
-          <input type="text" placeholder="e.g. Jane Appleseed">
-          <div class="error"></div>
+    <div class="empty-container"></div>
+    <div class="form-container" >
+      <form class="none" id="form" action="index-1.html" post="GET">
+        <div class="input-container">
+          <label for="name" >Cardholder Name </label>
+          <input type="text" id="name" placeholder="e.g. Jane Appleseed">
+          <div class="error-1"> </div>
         </div>
-        
-        <div class="input-contaier">
-          <label for="" id="card-number">Card Number </label>
-          <input type="text" placeholder="e.g. 1234 5678 9123 0000" max="10">
-          <div class="error"></div>
+        <div class="input-container ">
+          <label for="number" >Card Number </label>
+          <input type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="16">
+          <div class="error-1"></div>
         </div>
-      
-        <div class="input-contaier-1">
-          <div class="date">
-            <label for="" id="exp-date"> Exp. Date (MM/YY) </label>
-            <div class="date-input">
-              <input type="text" placeholder="MM" >
-              <input type="text" placeholder="YY" >
+        <div class="input-container-1 ">
+          <div class="date ">
+            <label for="date" id="exp-date"> Exp. Date (MM/YY) </label>
+            <div class="date-input ">
+              <div class="month-input ">
+                <input type="text" class=" " id="date-month" placeholder="MM" maxlength="2">
+              </div>
+              <div class="year-input ">
+                <input type="text" class=" " id="date-year" placeholder="YY" maxlength="2">
+              </div>
             </div>
-            <div class="error"></div>
-          </div>
-          
+            <div class="error-1"></div>
+          </div>         
           <div class="cvc-1">
-            <label for="" id="cvc">CVC </label>
-            <div class="">
-              <input type="text" placeholder="e.g. 123" maxlength="3">
+            <label for="cvc" >CVC </label>
+            <div class="cvc-2">
+              <input type="text" id="cvc" placeholder="e.g. 000" maxlength="3">
             </div>
-            <div class="error"></div>
-          </div>
-            
+            <div class="error-1"></div>
+          </div>            
         </div>
-      
-      
-        <div class="input-contaier">
-          <button type="submit"  id="submit">Confirm</button>
-        </div>
+        <button type="submit"  id="submit">Confirm</button>        
+      </form>
+      <div id="completed " class=" none">
+        <img src="images/icon-complete.svg" alt="">
+        <h2>Thank you!</h2>       
+        <p>We've added your card details</p>
+        <button class="completed-btn">Continue</button>
       </div>
       
-    </form>
+    </div>   
   </section>
-
-  
- 
-  
-
-  <!-- Completed state start
-    Thank you!
-  We've added your card details
-  Continue 
-  -->
-
-  
   
   <div id="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Eshilama Michael</a>.
   </div>
+
+ <script src="app.js"></script>
 </body>
 </html>
