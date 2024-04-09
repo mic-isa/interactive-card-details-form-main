@@ -18,19 +18,25 @@ const cardCvc = document.querySelector('.card-cvc');
 
 const cardname = document.querySelector('.card-name');
 
-const completed = document.getElementById('completed');
-
-const completedBtn = document.querySelector('.completed-btn');
-
-const submit = document.getElementById('submit');
-
 form.addEventListener("submit", function (e){
 
     validateInput();
 
-    if(isFormValid() == true){
-        form.submit();
-    }else{
+    if (isFormValid()) {
+        const formData = {
+            name: name.value.trim(),
+            card: card.value.trim(),
+            year: year.value.trim(),
+            month: month.value.trim(),
+            cvc: cvc.value.trim()
+        };
+    
+        const formDataJSON = JSON.stringify(formData);
+    
+        localStorage.setItem('formData', formDataJSON);
+    
+        window.location.href = 'index-1.html';
+    } else {
         e.preventDefault();
     }
 });
@@ -42,9 +48,11 @@ function isFormValid(){
 
     const container_3 = document.querySelector('.month-input');
 
-    const container_4 = document.querySelector('.cvc-2');
+    const container_4 = document.querySelector('.cvc-1');
     let result = true;
-
+    if(container_4.classList.contains('error')){
+        result = false;
+    }
     if(container.classList.contains('error')){
         result = false;
     }
@@ -54,9 +62,8 @@ function isFormValid(){
     if(container_3.classList.contains('error')){
         result = false;
     }
-    if(container_4.classList.contains('error')){
-        result = false;
-    }
+    
+
     return result;
 }
 
@@ -94,27 +101,40 @@ function validateInput(){
     }else{
         successMessage_1(card);
     }
-
+    
     if(cvcValue === ''){
         errorMessage(cvc,"Can't be blank");
+    }else if(!validateNumber(cvcValue)){
+        errorMessage(cvc,"Wrong format");
     }else{
         successMessage(cvc);
     }
-
-
+    
     if (yearValue === '' && monthValue === '') {
         errorMessage_2(year, "Can't be blank");
         errorMessage_2(month, "Can't be blank");
-    } else if (yearValue !== '' && monthValue === '') {
+    }else if (!validateNumber(monthValue) && !validateNumber(yearValue)) {
+        errorMessage_2(month, "Please enter a valid  month  and year");
+        errorMessage_2(year, "Please enter a valid month and year ");
+    }else if (!validateNumber(monthValue) && yearValue === '') {
+        errorMessage_2(month, "Please enter a valid  month  and year");
+        errorMessage_2(year, "Please enter a valid month and year ");
+    }else if (!validateNumber(monthValue) && yearValue !== '') {
+        successMessage_2(year);
+        errorMessage_2(month, "Please enter a valid  month");    
+    }else if (!validateNumber(yearValue) &&  monthValue !== '') {
+        successMessage_2(month);
+        errorMessage_2(year, "Please enter a valid  year");    
+    }else if (yearValue !== '' && monthValue === '') {
         successMessage_2(year);
         errorMessage_2(month, "Can't be blank");
     } else if (yearValue === '' && monthValue !== '') {
         successMessage_2(month);
         errorMessage_2(year, "Can't be blank");
-    } else {
+    }else {
         successMessage_2(year);
         successMessage_2(month);
-    }  
+    } 
     
 };
 function errorMessage_1(element,message){
@@ -202,7 +222,10 @@ function validateCardNumber(number){
     const re = /(\d{16})/g;
     return re.test(number);
 }
-
+function validateNumber(number){
+    const re = /(^\d+$)/g;
+    return re.test(number);
+}
 function formatNumber(cardValue, spacePositions) {
     let formattedNumber = '';
     for (let i = 0; i < cardValue.length; i++) {
