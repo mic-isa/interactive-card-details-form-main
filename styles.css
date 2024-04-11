@@ -102,7 +102,7 @@ body {
   } 
   section{
   display: flex;
-  height: 96vh;
+  height: 97vh;
   width: 100%;        
   gap: 0rem;
   flex-direction: column;
@@ -116,28 +116,27 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 45%;
+  height: 32%;
   position: relative;
   z-index: 2;
-}.front-image,.back-image {
-    
+}
+.front-image,.back-image {
   max-width:70% ;
-  object-fit: cover;
   position: absolute;
 }
 .front-image{
-  left: 10%;
-  bottom: -48%;
+  left: 15%;
+  bottom: -40%;
   z-index: 1000;
 }
 .back-image{
-  top: 18%;
-  right: 10%;
+  top: 21%;
+  right: 15%;
   z-index: 100;
 }
 
 .front-logo{
-  width: 25%;
+  width: 22%;
 }
 .front-details{
   padding: 1.2rem;
@@ -146,11 +145,11 @@ body {
   z-index:1000000;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 68%;
+  width: 70%;
   height: 78%;
-  gap:1.7rem;
+  gap:1.2rem;
   position: absolute;
-  left: 10%;
+  left: 15%;
   bottom: -55%;
   color: var(--clr-white);
 }
@@ -161,7 +160,7 @@ body {
   display: flex;
 }
 .para-1{
-  font-size: 1.3rem;
+  font-size: 0.90rem;
   width: 100%;
   font-weight: normal;
 }
@@ -177,12 +176,12 @@ body {
 }
 .back-para{
   display: flex;
-  top: 15%;
-  right: 10%;
+  top:14%;
+  right: 15%;
   z-index: 101;
   justify-content: flex-end;
   align-items: center;
-  width: 168%;
+  width: 80%;
   height: 78%;
   gap:1.7rem;
   position: absolute;
@@ -195,7 +194,7 @@ body {
 }
 .empty-container{
   width: 100%;
-  height: 5%;
+  height: 5.5%;
 }
 .form-container{
   width: 100%;
@@ -203,11 +202,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50%;
+  height: 63%;
   z-index: 1;
 }
 .completed{
-  width: 80%;
+  width: 70%;
   height: 40%;
   display: flex;
   flex-direction: column;
@@ -217,7 +216,7 @@ body {
   
 }
 .form{
-  width: 80%;
+  width: 70%;
   height: 40%;
   display: flex;
   flex-direction: column;
@@ -230,6 +229,8 @@ input,button{
   border: 0.15rem solid var(--clr-light-grayish-violet);
   border-radius: 0.5rem;
   margin-top: 0.5rem;
+}button{
+  padding: 0.6rem;
 }
 .input-container{
   display: flex;
@@ -266,7 +267,30 @@ button{
   color: var(--clr-white);
   border:none;
   }
-  .completed-btn{width: 100%;
+  .completed-btn{
+    width: 100%;
+  }
+  @media screen and (min-width: 540px) {
+    .front-image{
+      left: 15%;
+      bottom: -40%;
+    }
+    .back-image{
+      top: 21%;
+      right: 15%;
+    }
+    .front-details{
+      gap:1.2rem;
+      left: 15%;
+      bottom: -35%;
+    }
+    .back-para{
+      top: 3%;
+      right: 15%;
+    }
+    .para-1{
+      font-size: 01.30rem;
+    }
   }
 @media screen and (min-width: 800px) {
   section{
